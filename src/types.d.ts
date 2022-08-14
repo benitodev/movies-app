@@ -14,11 +14,3 @@ export interface Video {
 export interface VideoTrending extends Video {
   isTrending: true
 }
-
-export interface HomeProps {
-  data: Video[]
-}
-
-export interface TrendingListProps {
-  list: Video[]
-}
