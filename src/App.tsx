@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import styles from './App.module.css'
-import { Video } from './types'
 import * as videoService from './services/video'
+import { useDispatch } from 'react-redux'
+import { setInitVideos } from './slices/video'
 function App () {
-  const [videos, setVideos] = useState<Video[]>([])
-
+  const dispatch = useDispatch()
   useEffect(() => {
-    videoService.getVideos().then(setVideos)
+    videoService.getVideos()
+      .then((videos) => { dispatch(setInitVideos({ videos })) })
   }, [])
-  console.log(videos)
   return (
     <div className={styles.app}>
       <Routes>
-        <Route path='/' element={<Home data={videos}/>}/>
+        <Route path='/' element={<Home/>}/>
       </Routes>
     </div>
   )
