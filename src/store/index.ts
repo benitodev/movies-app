@@ -1,12 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
-
-// export const videoSlice = createSlice({
-//     name: 'video',
-//     initialState: {
-//         va
-//     }
-// })
-
-export default configureStore({
-  reducer: {}
+import reducer from '../reducer/reducer'
+export const store = configureStore({
+  reducer
 })
+
+export type TStore = ReturnType<typeof store.getState>
