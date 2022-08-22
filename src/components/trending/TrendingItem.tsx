@@ -1,10 +1,12 @@
 import React from 'react'
+import useFilterIcons from '../../hooks/useFilterIcons'
 import { Video } from '../../types'
 import styles from './TrendingItem.module.css'
-import { MdLocalMovies } from 'react-icons/md'
+
 const TrendingItem = ({ video }: { video: Video }) => {
+  const icon = useFilterIcons(video)
   return (
-    <div>
+    <div className={styles.card}>
       <img src={video.thumbnail.trending.small} alt="" />
       {video.thumbnail.trending && (
         <div className={styles.container}>
@@ -12,11 +14,12 @@ const TrendingItem = ({ video }: { video: Video }) => {
             {video.thumbnail.trending && (
               <>
                 {' '}
-                {video.year} &#8226; {<MdLocalMovies />} {video.category}{' '}
-                &#8226; {video.rating}{' '}
+                {video.year} &#8226; {icon} {video.category} &#8226;{' '}
+                {video.rating}{' '}
               </>
             )}
           </div>
+          <h3>{video.title}</h3>
         </div>
       )}
     </div>

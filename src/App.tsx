@@ -1,21 +1,19 @@
-import React, { useEffect } from 'react'
-import { Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
+import React from 'react'
 import styles from './App.module.css'
-import * as videoService from './services/video'
-import { useDispatch } from 'react-redux'
-import { setInitVideos } from './slices/video'
+
+import useGetAllVideos from './hooks/useGetAllVideos'
+import SideBar from './components/sidebar/SideBar'
+import SearchNav from './components/search/SearchNav'
+import MainContentRoutes from './components/content/MainContentRoutes'
 function App () {
-  const dispatch = useDispatch()
-  useEffect(() => {
-    videoService.getVideos()
-      .then((videos) => { dispatch(setInitVideos({ videos })) })
-  }, [])
+  // custom hook to call all videos and put them in the store
+  useGetAllVideos()
+
   return (
     <div className={styles.app}>
-      <Routes>
-        <Route path='/' element={<Home/>}/>
-      </Routes>
+      <SideBar/>
+      <SearchNav/>
+      <MainContentRoutes/>
     </div>
   )
 }

@@ -1,0 +1,89 @@
+.wrapper {
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  gap: 32px;
+  width: 100%;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+
+.buttonLeft{
+  font-family: inherit;
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  left: 10px;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.6);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s all;
+}
+
+.buttonRight{
+  font-family: inherit;
+  position: absolute;
+  right: 10px;
+  width: 48px;
+  height: 48px;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.6);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s all;
+}
+
+
+.left,
+.right {
+  font-family: inherit;
+  font-size: 32px;
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.6);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s all;
+  pointer-events: none;
+}
+
+.left:hover,
+.right:hover {
+  background-color: #fff;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}

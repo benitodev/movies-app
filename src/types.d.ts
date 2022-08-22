@@ -1,7 +1,9 @@
+export type Category = 'Movie' | 'TV Series'
 export interface Video {
   id: string;
-  category: string;
+  category: Category;
   isTrending: boolean;
+  isSaved: boolean;
   rating: string;
   thumbnail: {
     regular: { large: string; medium: string; small: string },
@@ -11,6 +13,4 @@ export interface Video {
   year: number
 }
 
-export interface VideoTrending extends Video {
-  isTrending: true
-}
+export type VideoId = Pick<Video, 'id'>

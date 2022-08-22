@@ -1,0 +1,23 @@
+.container {
+    grid-column: 2;
+    display: flex;
+    align-items: center;
+    margin-left: .5rem;
+}
+
+.input {
+    height: 50%;
+    width: 500px;
+    margin-left: 1.5rem;
+
+    font-size: 1.4rem;
+
+     background-color: transparent;
+     color: #fff;
+     border: none;
+}
+
+.input::placeholder{
+    color: #aaa;
+
+}

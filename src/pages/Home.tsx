@@ -1,30 +1,26 @@
-import React from 'react'
-import {
-  BsFillArrowLeftCircleFill as ArrowLeft,
-  BsFillArrowRightCircleFill as ArrowRight
-} from 'react-icons/bs'
+import React, { useEffect } from 'react'
 import styles from './Home.module.css'
-import { useSelector } from 'react-redux'
-import { TStore } from '../store'
-import { Video } from '../types'
-import TrendingItem from '../components/trending/TrendingItem'
+import Trending from '../components/trending/Trending'
+import useTrendingVideosAndCommons from '../hooks/useTrendingVideosAndCommons'
+import { useDispatch } from 'react-redux'
+import { change } from '../slices/filter'
 
 const Home = () => {
-  const data = useSelector((state: TStore) => state.videoReducer)
-
-  const trendingVideos = data.filter(
-    (video: Video) => video.isTrending === true
-  ).map((entry) => <TrendingItem key={entry.id} video={entry} />)
+  const { trendingVideos, commonVideos } = useTrendingVideosAndCommons()
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(change({ newValue: '' }))
+  }, [dispatch])
 
   return (
     <section className={styles.container}>
       <h2>Trending</h2>
-      <div className={styles.wrapper}>
-        <ArrowLeft className={styles.left} />
-        <div className={styles.carousel}>
-         {trendingVideos}
-        </div>
-        <ArrowRight className={styles.left} />
+        <Trending>
+          {trendingVideos}
+        </Trending>
+      <h2>Recommend for you</h2>
+      <div className={styles.cardContainer}>
+      {commonVideos}
       </div>
     </section>
   )

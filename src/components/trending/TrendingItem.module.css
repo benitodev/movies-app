@@ -25,3 +25,8 @@
     color: #fff;
     margin: 0;
 }
+
+.info{
+    display: flex;
+    gap: 5px;
+}
