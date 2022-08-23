@@ -3,7 +3,7 @@ export interface Video {
   id: string;
   category: Category;
   isTrending: boolean;
-  isSaved: boolean;
+  isSaved?: boolean;
   rating: string;
   thumbnail: {
     regular: { large: string; medium: string; small: string },
@@ -12,5 +12,7 @@ export interface Video {
   title: string,
   year: number
 }
+
+export type VideoRaw = Omit<Video, 'isSaved'>
 
 export type VideoId = Pick<Video, 'id'>
