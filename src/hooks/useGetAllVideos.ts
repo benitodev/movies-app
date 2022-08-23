@@ -9,33 +9,25 @@ const useGetAllVideos = () => {
   const dispatch = useDispatch()
   const [videosRaw, setVideosRaw] = useState<Video[]>([])
 
-  // useEffect(() => {
-  //   if (videosRaw.length === 0) return
-  //   const newData = [...videosRaw]
-  // newData.map((video) => {
-  //   if (videosSaved.includes(video.id)) { video.isSaved = true }
-  //   if (!videosSaved.includes(video.id)) { video.isSaved = false }
-  //   return video
-  // })
-  // newData.map((video) => ({ ...video, isSaved: videosSaved.includes(video.id) ? true : false }))
-  // newData.forEach(function (entry) {
-  //   entry.isSaved = !!videosSaved.includes(entry.id)
-  // })
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [videosSaved, videosRaw])
   useEffect(() => {
     if (videosRaw.length === 0) return
-    dispatch(setInitVideos({ videos: { raw: videosRaw, videosSaved } }))
-  }, [videosRaw, videosSaved, dispatch])
+    dispatch(setInitVideos({ videos: videosRaw }))
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [videosRaw, videosSaved])
 
   useEffect(() => {
     async function fetchData () {
       const response = await videoService.getVideos()
-      setVideosRaw(response)
+      const newVideos = [...response]
+      newVideos.forEach((video) => {
+        if (videosSaved.includes(video.id)) video.isSaved = true
+        if (!videosSaved.includes(video.id)) video.isSaved = false
+      })
+      setVideosRaw(newVideos)
     }
     fetchData()
-  }, [])
+  }, [videosSaved])
 }
 
 export default useGetAllVideos
