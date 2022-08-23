@@ -6,6 +6,7 @@ import SeriesContent from '../components/content/MoviesAndSeriesContent'
 const Series = () => {
   const videos = useFilterVideos({ videoCategory: 'TV Series' })
   const dispatch = useDispatch()
+
   useEffect(() => {
     dispatch(change({ newValue: 'TV Series' }))
   }, [dispatch])

@@ -7,9 +7,11 @@ import styles from './Movies.module.css'
 const Movies = () => {
   const videos = useFilterVideos({ videoCategory: 'Movie' })
   const dispatch = useDispatch()
+
   useEffect(() => {
     dispatch(change({ newValue: 'Movie' }))
   }, [dispatch])
+
   return (
     <div className={styles.container}>
       <div className={styles.cardContainer}>

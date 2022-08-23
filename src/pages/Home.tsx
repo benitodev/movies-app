@@ -8,6 +8,7 @@ import { change } from '../slices/filter'
 const Home = () => {
   const { trendingVideos, commonVideos } = useTrendingVideosAndCommons()
   const dispatch = useDispatch()
+
   useEffect(() => {
     dispatch(change({ newValue: '' }))
   }, [dispatch])
