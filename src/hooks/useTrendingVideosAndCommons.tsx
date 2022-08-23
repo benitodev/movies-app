@@ -1,9 +1,9 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import Card from '../components/card/Card'
-import TrendingItem from '../components/trending/TrendingItem'
 import { TStore } from '../store'
 import { Video } from '../types'
+import Card from '../components/card/Card'
+import TrendingItem from '../components/trending/TrendingItem'
 
 const useTrendingVideosAndCommons = () => {
   const data = useSelector((state: TStore) => state.videoReducer)

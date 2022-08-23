@@ -11,7 +11,6 @@ const useFilterIcons = (video: Video) => {
       setIcon(<MdOutlineOndemandVideo />)
     }
   }, [video])
-
   return icon
 }
 

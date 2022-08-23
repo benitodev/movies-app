@@ -6,8 +6,9 @@ import { Video } from '../types'
 import { TStore } from '../store'
 const useGetAllVideos = () => {
   const videosSaved = useSelector((state: TStore) => state.savedReducer)
-  const dispatch = useDispatch()
   const [videosRaw, setVideosRaw] = useState<Video[]>([])
+
+  const dispatch = useDispatch()
 
   useEffect(() => {
     if (videosRaw.length === 0) return
