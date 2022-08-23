@@ -7,7 +7,8 @@ const Card = ({ video }: {video: Video}) => {
   const icon = useFilterIcons(video)
   return (
     <div className={styles.card}>
-      <SavedButton id={video.id} isSaved={video.isSaved} styles={styles}></SavedButton>
+      {typeof video.isSaved === 'boolean' && <SavedButton id={video.id} isSaved={video.isSaved} styles={styles}></SavedButton>}
+
         <img src={video.thumbnail.regular.small} alt="" />
         <div className={styles.description}>
             {video.year} &#8226; {icon} {video.category} &#8226; {video.rating}

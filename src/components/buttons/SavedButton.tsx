@@ -6,6 +6,7 @@ import { addVideo, removeVideo } from '../../slices/saved'
 // eslint-disable-next-line no-undef
 const SavedButton = ({ styles, id, isSaved } : {styles: CSSModuleClasses, id: string, isSaved: boolean }) => {
   const dispatch = useDispatch()
+
   const toggleSaved: React.MouseEventHandler<HTMLButtonElement> = (e) => {
     if (!isSaved) {
       dispatch(addVideo({ newVideo: id }))
@@ -13,7 +14,7 @@ const SavedButton = ({ styles, id, isSaved } : {styles: CSSModuleClasses, id: st
       dispatch(removeVideo({ videoToRemove: id }))
     }
   }
-  console.log(isSaved)
+
   return (
     <div className={styles.svgContainer}>
         <button style={{ backgroundColor: 'transparent', padding: '0' }} onClick={toggleSaved}>

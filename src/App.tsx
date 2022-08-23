@@ -1,7 +1,7 @@
 import React from 'react'
-import styles from './App.module.css'
-
 import useGetAllVideos from './hooks/useGetAllVideos'
+
+import styles from './App.module.css'
 import SideBar from './components/sidebar/SideBar'
 import SearchNav from './components/search/SearchNav'
 import MainContentRoutes from './components/content/MainContentRoutes'

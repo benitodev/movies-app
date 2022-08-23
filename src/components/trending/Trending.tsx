@@ -23,6 +23,7 @@ const Trending = ({ children }: Props) => {
       carouselRef.current.scrollLeft += 480
     }
   }
+
   return (
     <div className={styles.wrapper}>
         <button onClick={handleClick} className={styles.buttonLeft} id='arrowLeft'>

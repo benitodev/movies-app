@@ -5,6 +5,7 @@ import styles from './TrendingItem.module.css'
 
 const TrendingItem = ({ video }: { video: Video }) => {
   const icon = useFilterIcons(video)
+
   return (
     <div className={styles.card}>
       <img src={video.thumbnail.trending.small} alt="" />
