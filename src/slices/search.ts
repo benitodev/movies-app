@@ -22,4 +22,5 @@ const searchSlice = createSlice({
 })
 
 export const { change } = searchSlice.actions
+
 export const searchReducer = searchSlice.reducer

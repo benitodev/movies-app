@@ -22,4 +22,5 @@ const filterSlice = createSlice({
 })
 
 export const { change } = filterSlice.actions
+
 export const filterReducer = filterSlice.reducer

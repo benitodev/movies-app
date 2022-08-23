@@ -10,7 +10,6 @@ interface TPayload {
 const persistState = (state: SavedState) => {
   localStorage.setItem('videosSaved', JSON.stringify(state))
 }
-// const initialState = { videos: [], isSaved: false } as State
 
 const initialState = JSON.parse(
   // @ts-ignore
