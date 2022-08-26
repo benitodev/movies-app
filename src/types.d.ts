@@ -12,7 +12,3 @@ export interface Video {
   title: string,
   year: number
 }
-
-export type VideoRaw = Omit<Video, 'isSaved'>
-
-export type VideoId = Pick<Video, 'id'>
